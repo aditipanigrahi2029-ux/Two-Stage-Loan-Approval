@@ -101,7 +101,7 @@ def predict_loan(data: ApplicantData):
 
         input_data = data.model_dump()
 
-        print("\n API INPUT ")
+        print("\n =============API INPUT=================== ")
         print(input_data)
 
 
@@ -111,7 +111,7 @@ def predict_loan(data: ApplicantData):
 
         applicant_df = pd.DataFrame([input_data])
 
-        print("\n DATAFRAME ")
+        print("\n============ DATAFRAME ======================")
         print(applicant_df)
 
 
@@ -121,7 +121,7 @@ def predict_loan(data: ApplicantData):
 
         result = model.two_stage_predict(applicant_df)
 
-        print("\n MODEL RESULT ")
+        print("\n  =====================MODEL RESULT ===================")
         print(result)
 
 
@@ -135,7 +135,7 @@ def predict_loan(data: ApplicantData):
         }
 
 
-        print("\n API RESPONSE ")
+        print("\n ========== API RESPONSE =====================")
         print(response)
 
 
@@ -148,7 +148,7 @@ def predict_loan(data: ApplicantData):
 
     except Exception as e:
 
-        print("\n BACKEND ERROR ")
+        print("\n ============BACKEND ERROR ===============")
         print(str(e))
 
         raise HTTPException(
