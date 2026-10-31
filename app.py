@@ -215,7 +215,7 @@
 
 
 
-
+import os
 import streamlit as st
 import requests
 import pandas as pd
@@ -227,7 +227,11 @@ st.title("🏦 Automated Loan Processing Portal")
 st.write("Enter the applicant details below to fire a network request to the FastAPI core engine.")
 
 # Define the local port address of your running FastAPI server
-API_URL = "http://localhost:8000/predict_loan"
+# API_URL = "http://localhost:8000/predict_loan"
+API_URL = os.getenv(
+    "API_URL",
+    "http://localhost:8000/predict_loan"
+)
 
 # User Web Form Elements
 no_of_dependents = st.number_input("Number of Dependents", min_value=0, step=1)
